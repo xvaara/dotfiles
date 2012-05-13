@@ -100,11 +100,16 @@ If that doesn't work, move the OSX supplied ctags [like so](http://www.mattpolit
 sudo mv /usr/bin/ctags /usr/bin/ctags_original
 ```
 
-### [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+### [oh-my-zsh](https://github.com/sorin-ionescu/oh-my-zsh)
 
-```bash
-curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-```
+`git clone https://github.com/sorin-ionescu/oh-my-zsh.git ~/.oh-my-zsh`
+`cd ~/.oh-my-zsh && git submodule update --init --recursive`
+
+We prefer the @sorin-ionescu rewrite of Oh My Zsh. It will eventually be shipped
+as a submodule of YADR, although you can use the original @robbyrussell version as well.
+
+You only need to do the two commands above. The rest of the installation is done
+by YADR, which ships with a tie-in to sorin's OMZ.
 
 ### [fasd](https://github.com/clvv/fasd)
 
@@ -269,7 +274,7 @@ files contain key mappings as well (TODO: probably will move them out to skwp-ke
 #### Rails
 
  * `,ss` to run specs, `,ll` to run a given spec on a line - using my [vim-ruby-conque plugin](https://github.com/skwp/vim-ruby-conque)
- * `Cmd-Shift-R` to use vim-ruby-conque to run a spec file. `Cmd-Shift-L` to run from a line (individual it block)
+ * `Cmd-Shift-R` to use vim-ruby-conque to run a spec file. `Cmd-Shift-L` to run from a line (individual it block), `,Cmd-Shift-R` to rerun the last run command (great for re-running specs)
 
 #### Surround.vim customizations
 
@@ -295,12 +300,14 @@ files contain key mappings as well (TODO: probably will move them out to skwp-ke
  * `,qa/` - quickfix Ack last search (Steve Losh)
  * `,qg/` - quickfix GitGrep last search
  * `,T` - Tag list (list of methods in a class)
+ * `Ctrl-s` - Open related spec in a split. Similar to :A and :AV from rails.vim but is also aware of the fast_spec dir and faster to type
 
 #### File Navigation
 
  * `,t` - CtrlP fuzzy file selector
  * `,b` - CtrlP buffer selector
- * `Cmd-Shift-P` - Clear CtrlP cache
+ * `,m` - jump to method - CtrlP tag search within current buffer
+ * `,M` - jump to any Method - CtrlP tag search within all buffers
  * `,jm` jump (via CtrlP) to app/models
  * `,jc` app/controllers
  * `,jv` app/views
@@ -314,6 +321,8 @@ files contain key mappings as well (TODO: probably will move them out to skwp-ke
  * `,jC` config
  * `,jV` vendor
  * `,jF` factories
+ * `Cmd-Shift-P` - Clear CtrlP cache
+ * `:Bopen [gem name]` to navigate to a gem (@tpope/vim-bundler)
 
 #### RSI-reduction
 
@@ -324,6 +333,7 @@ files contain key mappings as well (TODO: probably will move them out to skwp-ke
  * `Cmd-'` and `Cmd-"` to change content inside quotes
  * Cmd-Space to autocomplete. Tab for snipmate snippets.
  * `,ci` to change inside any set of quotes/brackets/etc
+ * `,#` `,"` `,'` `,]` `,)` `,}` to surround a word in these common wrappers. the # does #{ruby interpolation}. works in visual mode (thanks @cj)
 
 #### Tab Navigation
 
@@ -355,8 +365,10 @@ files contain key mappings as well (TODO: probably will move them out to skwp-ke
  * `,cf` - Copy Filename of current file (full path) into system (not vi) paste buffer
  * `,cn` - Copy Filename of current file (name only, no path)
  * `,vc` - (Vim Command) copies the command under your cursor and executes it in vim. Great for testing single line changes to vimrc.
+ * `,vr` - (Vim Reload) source current file as a vim file
  * `,yw` - yank a word from anywhere within the word (so you don't have to go to the beginning of it)
  * `,ow` - overwrite a word with whatever is in your yank buffer - you can be anywhere on the word. saves having to visually select it
+ * `,ocf` - open changed files (stolen from @garybernhardt). open all files with git changes in splits
  * `,w` - strip trailing whitespaces
  * `sj` - split a line such as a hash {:foo => {:bar => :baz}} into a multiline hash (j = down)
  * `sk` - unsplit a link (k = up)
@@ -407,12 +419,14 @@ files contain key mappings as well (TODO: probably will move them out to skwp-ke
  * tComment - gcc to comment a line, gcp to comment blocks, nuff said
  * sparkup - div.foo#bar - hit `ctrl-e`, expands into `<div class="foo" id="bar"/>`, and that's just the beginning
  * rails.vim - syntax highlighting, gf (goto file) enhancements, and lots more. should be required for any rails dev
+ * rake.vim - like rails.vim but for non-rails projects. makes `:Rtags` and other commands just work
  * ruby.vim - lots of general enhancements for ruby dev
  * necomplcache - intelligent and fast complete as you type, and added Command-Space to select a completion (same as Ctrl-N)
  * snipMate - offers textmate-like snippet expansion + scrooloose-snippets . try hitting TAB after typing a snippet
  * jasmine.vim - support for jasmine javascript unit testing, including snippets for it, before, etc..
  * vim-coffeescript - support for coffeescript, highlighting
  * vim-stylus - support for stylus css language
+ * vim-bundler - work with bundled gems
 
 #### TextObjects
 

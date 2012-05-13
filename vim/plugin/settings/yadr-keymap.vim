@@ -38,6 +38,37 @@ imap <silent> <D-d> _
 imap <silent> <D-K> -
 imap <silent> <D-D> -
 
+" ,# Surround a word with #{ruby interpolation}
+map ,# ysiw#
+vmap ,# c#{<C-R>"}<ESC>
+
+" ," Surround a word with "quotes"
+map ," ysiw"
+vmap ," c"<C-R>""<ESC>
+
+" ,' Surround a word with 'single quotes'
+map ,' ysiw'
+vmap ,' c'<C-R>"'<ESC>
+
+" ,) or ,( Surround a word with (parens)
+" The difference is in whether a space is put in
+map ,( ysiw(
+map ,) ysiw)
+vmap ,( c( <C-R>" )<ESC>
+vmap ,) c(<C-R>")<ESC>
+
+" ,[ Surround a word with [brackets]
+map ,] ysiw]
+map ,[ ysiw[
+vmap ,[ c[ <C-R>" ]<ESC>
+vmap ,] c[<C-R>"]<ESC>
+
+" ,{ Surround a word with {braces}
+map ,} ysiw}
+map ,{ ysiw{
+vmap ,} c{ <C-R>" }<ESC>
+vmap ,{ c{<C-R>"}<ESC>
+
 " gary bernhardt's hashrocket
 imap <c-l> <space>=><space>
 
@@ -163,11 +194,11 @@ nnoremap <silent> ,cn :let @* = expand("%:t")<CR>
 "Clear current search highlight by double tapping //
 nmap <silent> // :nohlsearch<CR>
 
-" (c)opy (c)ommand - which allows us to execute
-" the line we're looking at (it does so by yy-copy, colon
-" to get to the command mode, C-f to get to history editing
-" p to paste it, C-c to return to command mode, and CR to execute
+"(v)im (c)ommand - execute current line as a vim command
 nmap <silent> ,vc yy:<C-f>p<C-c><CR>
+
+"(v)im (r)eload
+nmap <silent> ,vr :so %<CR>
 
 " Type ,hl to toggle highlighting on/off, and show current value.
 noremap ,hl :set hlsearch! hlsearch?<CR>
@@ -220,6 +251,8 @@ abbr pry! require 'pry'; binding.pry
 nmap <silent> <D-R> :call RunRspecCurrentFileConque()<CR>
 " Cmd-Shift-L for RSpec Current Line
 nmap <silent> <D-L> :call RunRspecCurrentLineConque()<CR>
+" ,Cmd-R for Last conque command
+nmap <silent> ,<D-R> :call RunLastConqueCommand()<CR>
 
 " Get the current highlight group. Useful for then remapping the color
 map ,hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
