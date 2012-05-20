@@ -8,7 +8,7 @@
     # Yet Another Dotfile Repo v0.9
     # Alpha Release Please Report Bugs
 
-    git clone https://github.com/skwp/dotfiles ~/.yadr
+    git clone https://github.com/xvaara/dotfiles ~/.yadr
     cd ~/.yadr && rake install
 
     # Your dotfiles are safe! YADR will not
@@ -123,7 +123,7 @@ Installation is automated via `rake` and the `yadr` command. To get
 started please run:
 
 ```bash
-git clone https://github.com/skwp/dotfiles ~/.yadr
+git clone https://github.com/xvaara/dotfiles ~/.yadr
 cd ~/.yadr && rake install
 ```
 

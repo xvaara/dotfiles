@@ -313,3 +313,6 @@
 [submodule "vim/bundle/skwp-vim-easymotion"]
 	path = vim/bundle/skwp-vim-easymotion
 	url = https://github.com/skwp/vim-easymotion
+[submodule "vim/bundle/vim-perl"]
+	path = vim/bundle/vim-perl
+	url = https://github.com/petdance/vim-perl.git
