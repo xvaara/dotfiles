@@ -187,12 +187,17 @@ an example.
 ## Pry
 
 Pry (http://pry.github.com/) offers a much better out of the box IRB experience
-with colors, tab completion, and lots of other tricks. You should:
+with colors, tab completion, and lots of other tricks. You can also use it
+as an actual debugger by installing pry-nav (https://github.com/nixme/pry-nav) to 
+get colorized debugging that shows you where you are as you step through.
+
+You should:
 
 ### Install the gem
 
 ```bash
 gem install pry
+gem install pry-nav
 gem install awesome_print
 ```
 
@@ -200,15 +205,16 @@ gem install awesome_print
 
   * as irb: `pry`
   * as rails console: `script/console --irb=pry`
+  * as a debugger: `require 'pry'; binding.pry` in your code (or just type `pry!<space>` to make vim do it)
 
 ### Pry Customizations:
 
  * `clear` command to clear screen
  * `sql` command to execute something (within a rails console)
+ * `c` (continue) `n` (next) `s` (step) commands for debugging using pry-nav
  * all objects displayed in readable format (colorized, sorted hash keys) - via awesome_print
  * a few color modifications to make it more useable
  * type `help` to see all the commands
-
 
 ## Git
 
@@ -244,6 +250,10 @@ your `~/.secrets` file which is automatically referenced by the provided zshrc:
 
 A .gemrc is included. Never again type `gem install whatever --no-ri --no-rdoc`. `--no-ri --no-rdoc` is done by default.
 
+## Vimization of everything
+
+The provided inputrc and editrc will turn your various command line tools like mysql and irb into vim prompts. There's
+also an included Ctrl-R reverse history search feature in editrc, very useful in irb.
 
 ## Vim Configuration
 
@@ -301,6 +311,7 @@ files contain key mappings as well (TODO: probably will move them out to skwp-ke
  * `,qg/` - quickfix GitGrep last search
  * `,T` - Tag list (list of methods in a class)
  * `Ctrl-s` - Open related spec in a split. Similar to :A and :AV from rails.vim but is also aware of the fast_spec dir and faster to type
+ * `,,w` (alias `,<esc>`) or `,,b` (alias `,<shift-esc>`) - EasyMotion, a vimperator style tool that highlights jump-points on the screen and lets you type to get there.
 
 #### File Navigation
 
@@ -326,14 +337,14 @@ files contain key mappings as well (TODO: probably will move them out to skwp-ke
 
 #### RSI-reduction
 
+ * Cmd-Space to autocomplete. Tab for snipmate snippets.
  * `Cmd-k` and `Cmd-d` to type underscores and dashes (use Shift), since they are so common in code but so far away from home row
  * `Cmd-k` and `Cmd-d` to type underscores and dashes (use Shift), since they are so common in code but so far away from home row
  * `Ctrl-l` to insert a => hashrocket (thanks @garybernhardt)
  * `,.` to go to last edit location (same as `'.`) because the apostrophe is hard on the pinky
- * `Cmd-'` and `Cmd-"` to change content inside quotes
- * Cmd-Space to autocomplete. Tab for snipmate snippets.
  * `,ci` to change inside any set of quotes/brackets/etc
  * `,#` `,"` `,'` `,]` `,)` `,}` to surround a word in these common wrappers. the # does #{ruby interpolation}. works in visual mode (thanks @cj)
+ * `Cmd-'`, `Cmd-"`, `Cmd-]`, `Cmd-)`, etc to change content inside those surrounding marks. You don't have to be inside them.
 
 #### Tab Navigation
 
@@ -396,7 +407,7 @@ files contain key mappings as well (TODO: probably will move them out to skwp-ke
  * NERDTree - everyone's favorite tree browser
  * NERDTree-tabs - makes NERDTree play nice with MacVim tabs so that it's on every tab
  * ShowMarks - creates a visual gutter to the left of the number column showing you your marks
- * EasyMotion - hit ,,w (forward) or ,,b (back) and watch the magic happen. just type the letters and jump directly to your target - in the provided vimrc the keys are optimized for home and upper row, no pinkies
+ * EasyMotion - hit ,<esc> (forward) or ,<Shift-Esc> (back) and watch the magic happen. Just type the letters and jump directly to your target - in the provided vimrc the keys are optimized for home row mostly. Using @skwp modified EasyMotion which uses vimperator-style two character targets.
  * LustyJuggler/Explorer - hit B, type buf name to match a buffer, or type S and use the home row keys to select a buffer
  * TagBar - hit ,T to see a list of methods in a class (uses ctags)
  * CtrlP - Ctrl-p or ,t to find a file
