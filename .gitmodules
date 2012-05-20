@@ -316,3 +316,6 @@
 [submodule "vim/bundle/vim-perl"]
 	path = vim/bundle/vim-perl
 	url = https://github.com/petdance/vim-perl.git
+[submodule "vim/bundle/perlcritic-compiler"]
+	path = vim/bundle/perlcritic-compiler
+	url = https://github.com/vim-scripts/perlcritic-compiler-script.git
