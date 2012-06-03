@@ -300,10 +300,7 @@
   ignore = dirty
 [submodule "zsh/zsh-syntax-highlighting"]
 	path = zsh/zsh-syntax-highlighting
-	url = git://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "vim/bundle/skwp-vim-spec-finder"]
-	path = vim/bundle/skwp-vim-spec-finder
-	url = https://github.com/skwp/vim-spec-finder
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "vim/bundle/tpope-vim-bundler"]
 	path = vim/bundle/tpope-vim-bundler
 	url = https://github.com/tpope/vim-bundler
@@ -319,3 +316,9 @@
 [submodule "vim/bundle/perlcritic-compiler"]
 	path = vim/bundle/perlcritic-compiler
 	url = https://github.com/vim-scripts/perlcritic-compiler-script.git
+[submodule "vim/bundle/groenewege-vim-less"]
+	path = vim/bundle/groenewege-vim-less
+	url = https://github.com/groenewege/vim-less.git
+[submodule "vim/bundle/mattn-webapi-vim"]
+	path = vim/bundle/mattn-webapi-vim
+	url = https://github.com/mattn/webapi-vim.git
