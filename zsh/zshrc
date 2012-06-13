@@ -45,7 +45,12 @@ if [[ -d $yadr/custom/zsh/after ]]; then
   for config_file ($yadr/custom/zsh/after/*) source $config_file
 fi
 
+if [[ -a ~/.aliases.generic.sh ]] then
+  source ~/.aliases.generic.sh
+fi
+
 # Put secret configuration settings in ~/.secrets
 if [[ -a ~/.secrets ]] then
   source ~/.secrets
 fi
+
