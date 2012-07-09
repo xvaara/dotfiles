@@ -27,8 +27,6 @@ zstyle ':omz:load' omodule 'environment' 'terminal' 'editor' 'completion' \
   'history' 'directory' 'spectrum' 'utility' 'prompt' 'history-substring-search' \
   'macports' 'git' 'perl' 'git' 'osx' 'rsync' 'tmux' 'syntax-highlighting' 'z'
 
-#removed alias module, missing?
-
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
