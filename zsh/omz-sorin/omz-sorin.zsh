@@ -2,10 +2,10 @@
 export OMZ="$HOME/.oh-my-zsh"
 
 # Set the key mapping style to 'emacs' or 'vi'.
-# zstyle ':omz:module:editor' keymap 'vi'
+zstyle ':omz:module:editor' keymap 'vi'
 
 # Auto convert .... to ../..
-zstyle ':omz:module:editor' dot-expansion 'no'
+zstyle ':omz:module:editor' dot-expansion 'yes'
 
 # Set case-sensitivity for completion, history lookup, etc.
 zstyle ':omz:*:*' case-sensitive 'no'
@@ -24,7 +24,10 @@ zstyle ':omz:module:terminal' auto-title 'yes'
 
 # Set the Oh My Zsh modules to load (browse modules).
 zstyle ':omz:load' omodule 'environment' 'terminal' 'editor' 'completion' \
-  'history' 'directory' 'spectrum' 'alias' 'utility' 'prompt' 'history-substring-search'
+  'history' 'directory' 'spectrum' 'utility' 'prompt' 'history-substring-search' \
+  'macports' 'git' 'perl' 'git' 'osx' 'rsync' 'tmux' 'syntax-highlighting' 'z'
+
+#removed alias module, missing?
 
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
