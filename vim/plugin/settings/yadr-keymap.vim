@@ -72,6 +72,9 @@ vmap ,{ c{<C-R>"}<ESC>
 " gary bernhardt's hashrocket
 imap <c-l> <space>=><space>
 
+" Semicolon at end of line by typing ;;
+inoremap ;; <C-o>A;<esc>
+
 " Change inside various enclosures with Cmd-" and Cmd-'
 " The f makes it find the enclosure so you don't have
 " to be standing inside it
@@ -97,6 +100,8 @@ imap <C-a> <esc>wa
 " ==== NERD tree
 " Cmd-Shift-N for nerd tree
 nmap <D-N> :NERDTreeToggle<CR>
+" Open the project tree and expose current file in the nerdtree with Ctrl-\
+nnoremap <silent> <C-\> :NERDTreeFind<CR>:vertical res 30<CR>
 
 " ,q to toggle quickfix window (where you have stuff like GitGrep)
 " ,oq to open it back up (rare)
@@ -110,10 +115,10 @@ nnoremap <silent> <D-k> {
 autocmd FileType ruby map <buffer> <D-j> ]m
 autocmd FileType ruby map <buffer> <D-k> [m
 autocmd FileType rspec map <buffer> <D-j> }
-autocmd FileType rspec map <buffer> <D-k> {
+autocmd FileType rspec map <buffer> <D-j> }
+autocmd FileType javascript map <buffer> <D-k> {
+autocmd FileType javascript map <buffer> <D-k> {
 
-" Open the project tree and expose current file in the nerdtree with Ctrl-\
-nnoremap <silent> <C-\> :NERDTreeFind<CR>
 
 " Command-/ to toggle comments
 map <D-/> :TComment<CR>
@@ -125,16 +130,6 @@ nnoremap ,gg :GitGrep ""<left>
 nnoremap ,gcp :GitGrepCurrentPartial<CR>
 "GitGrep Current File
 nnoremap ,gcf :call GitGrep(expand("%:t:r"))<CR>
-
-" hit ,f to find the definition of the current class
-" this uses ctags. the standard way to get this is Ctrl-]
-nnoremap <silent> ,f <C-]>
-
-" use ,F to jump to tag in a vertical split
-nnoremap <silent> ,F :let word=expand("<cword>")<CR>:vsp<CR>:wincmd w<cr>:exec("tag ". word)<cr>
-
-" use ,gf to go to file in a vertical split
-nnoremap <silent> ,gf :vertical botright wincmd f<CR>
 
 
 "Move back and forth through previous and next buffers
@@ -246,3 +241,6 @@ map ,hi :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 
 " Source current file Cmd-% (good for vim development)
 map <D-%> :so %<CR>
+
+" ,hp = html preview
+map <silent> ,hp :!open -a Safari %<CR><CR>
