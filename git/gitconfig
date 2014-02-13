@@ -84,11 +84,11 @@
   svnl = svn log --oneline --show-commit
 [format]
   pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
-[mergetool]
-  prompt = false
-[mergetool "mvimdiff"]
-  cmd="mvim -c 'Gdiff' $MERGED"     # use fugitive.vim for 3-way merge
-  keepbackup=false
+#[mergetool]
+#x  prompt = false
+#[mergetool "mvimdiff"]
+#  cmd="mvim -c 'Gdiff' $MERGED"     # use fugitive.vim for 3-way merge
+#  keepbackup=false
 [merge]
   summary = true
   verbosity = 1
@@ -123,3 +123,9 @@
 	trustExitCode = true
 [include]
   path = .gitconfig.user
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[user]
+	name = Jukka Raimovaara
+	email = roska@mentalhouse.fi
