@@ -1,0 +1,6 @@
+Bundle "https://github.com/leafo/moonscript-vim"
+Bundle "TT2-syntax"
+Bundle "https://github.com/terryma/vim-multiple-cursors"
+Bundle "https://github.com/marijnh/tern_for_vim.git"
+Bundle "https://github.com/junegunn/goyo.vim.git"
+Bundle "https://github.com/szw/vim-ctrlspace.git"

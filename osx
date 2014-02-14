@@ -9,7 +9,7 @@ defaults write com.apple.menuextra.battery ShowPercent -string "NO"
 defaults write com.apple.menuextra.battery ShowTime -string "YES"
 
 # Always show scrollbars
-defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+# defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -241,6 +241,9 @@ defaults write com.google.Chrome.plist AppleEnableSwipeNavigateWithScrolls -bool
 # file=/Applications/Dropbox.app/Contents/Resources/check.icns
 # [ -e "$file" ] && mv -f "$file" "$file.bak"
 # unset file
+
+# set global shortcut for switching tab, ctrl-pageUp/pageDown
+defaults write -g NSUserKeyEquivalents -dict-add "Select Previous Tab" "^\UF72C" "Previous Tab" "^\UF72C" "Previous Workspace" "^\UF72C" "Select Next Tab" "^\UF72D" "Next Tab" "^\UF72D" "Next Workspace" "^\UF72D"
 
 # Kill affected applications
 for app in Finder Dock Mail Safari iTunes iCal Address\ Book SystemUIServer; do killall "$app" > /dev/null 2>&1; done
