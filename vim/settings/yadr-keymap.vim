@@ -105,7 +105,7 @@ nmap <D-N> :NERDTreeToggle<CR>
 " Open the project tree and expose current file in the nerdtree with Ctrl-\
 nnoremap <silent> <C-\> :NERDTreeFind<CR>:vertical res 30<CR>
 
-" ,q to toggle quickfix window (where you have stuff like GitGrep)
+" ,q to toggle quickfix window (where you have stuff like Ag)
 " ,oq to open it back up (rare)
 nmap <silent> ,qc :cclose<CR>
 nmap <silent> ,qo :copen<CR>
@@ -125,13 +125,6 @@ autocmd FileType javascript map <buffer> <D-j> {
 " Command-/ to toggle comments
 map <D-/> :TComment<CR>
 imap <D-/> <Esc>:TComment<CR>i
-
-"GitGrep - open up a git grep line, with a quote started for the search
-nnoremap ,gg :GitGrep ""<left>
-"GitGrep Current Partial
-nnoremap ,gcp :GitGrepCurrentPartial<CR>
-"GitGrep Current File
-nnoremap ,gcf :call GitGrep(expand("%:t:r"))<CR>
 
 
 "Move back and forth through previous and next buffers
@@ -153,7 +146,7 @@ nnoremap gf :e<cfile><CR>
 nnoremap <C-w>f :sp +e<cfile><CR>
 nnoremap <C-w>gf :tabe<cfile><CR>
 
-" Zoom in and out of current window with ,gz
+" Zoom in
 map <silent> ,gz <C-w>o
 
 " Use numbers to pick the tab you want (like iTerm)
