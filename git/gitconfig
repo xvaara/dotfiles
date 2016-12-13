@@ -137,3 +137,9 @@
 [user]
 	name = Jukka Raimovaara
 	email = roska@mentalhouse.fi
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[commit]
+	template = /Users/xdanger/.stCommitMsg
